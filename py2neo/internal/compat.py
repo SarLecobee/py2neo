@@ -19,9 +19,12 @@
 from __future__ import absolute_import
 
 try:
-    from configparser import SafeConfigParser
+    from configparser import ConfigParser as SafeConfigParser
 except ImportError:
-    from ConfigParser import SafeConfigParser
+    try:
+        from configparser import SafeConfigParser
+    except ImportError:
+        from ConfigParser import SafeConfigParser
 
 try:
     from collections.abc import Sequence, Set, Mapping
